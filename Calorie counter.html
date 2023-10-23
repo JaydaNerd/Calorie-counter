@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calorie Counter</title>
+    <style>
+     body {background-color: powderblue;}
+     button { }
+
+    </style>
+</head>
+<body>
+    <h1>Calorie Counter</h1>
+    <div>
+        <h2>Appetizer</h2>
+        <label for="appetizer-fat">Grams of Fat: </label>
+        <input type="number" id="appetizer-fat"><br>
+        <label for="appetizer-carbs">Grams of Carbohydrates: </label>
+        <input type="number" id="appetizer-carbs"><br>
+        <label for="appetizer-protein">Grams of Protein: </label>
+        <input type="number" id="appetizer-protein"><br>
+    </div>
+    <div>
+        <h2>Entrée</h2>
+        <label for="entree-fat">Grams of Fat: </label>
+        <input type="number" id="entree-fat"><br>
+        <label for="entree-carbs">Grams of Carbohydrates: </label>
+        <input type="number" id="entree-carbs"><br>
+        <label for="entree-protein">Grams of Protein: </label>
+        <input type="number" id="entree-protein"><br>
+    </div>
+    <div>
+        <h2>Dessert</h2>
+        <label for="dessert-fat">Grams of Fat: </label>
+        <input type="number" id="dessert-fat"><br>
+        <label for="dessert-carbs">Grams of Carbohydrates: </label>
+        <input type="number" id="dessert-carbs"><br>
+        <label for="dessert-protein">Grams of Protein: </label>
+        <input type="number" id="dessert-protein"><br>
+    </div>
+    <br>
+    <button onclick="calculateCalories()">Calculate Calories</button>
+    <br><br>
+    <div id="calories-display">
+        <h2>Calories</h2>
+        <div id="appetizer-calories">Appetizer Calories: </div>
+        <div id="entree-calories">Entrée Calories: </div>
+        <div id="dessert-calories">Dessert Calories: </div>
+        <div id="total-calories">Total Calories: </div>
+    </div>
+
+    <script>
+        function calculateCalories() {
+            const appetizerFat = parseInt(document.getElementById('appetizer-fat').value);
+            const appetizerCarbs = parseInt(document.getElementById('appetizer-carbs').value);
+            const appetizerProtein = parseInt(document.getElementById('appetizer-protein').value);
+            const entreeFat = parseInt(document.getElementById('entree-fat').value);
+            const entreeCarbs = parseInt(document.getElementById('entree-carbs').value);
+            const entreeProtein = parseInt(document.getElementById('entree-protein').value);
+            const dessertFat = parseInt(document.getElementById('dessert-fat').value);
+            const dessertCarbs = parseInt(document.getElementById('dessert-carbs').value);
+            const dessertProtein = parseInt(document.getElementById('dessert-protein').value);
+
+            const appetizerCalories = 9 * appetizerFat + 4 * appetizerCarbs + 4 * appetizerProtein;
+            const entreeCalories = 9 * entreeFat + 4 * entreeCarbs + 4 * entreeProtein;
+            const dessertCalories = 9 * dessertFat + 4 * dessertCarbs + 4 * dessertProtein;
+            const totalCalories = appetizerCalories + entreeCalories + dessertCalories;
+
+            document.getElementById('appetizer-calories').innerText = `Appetizer Calories: ${appetizerCalories}`;
+            document.getElementById('entree-calories').innerText = `Entrée Calories: ${entreeCalories}`;
+            document.getElementById('dessert-calories').innerText = `Dessert Calories: ${dessertCalories}`;
+            document.getElementById('total-calories').innerText = `Total Calories: ${totalCalories}`;
+        }
+    </script>
+</body>
+</html>
